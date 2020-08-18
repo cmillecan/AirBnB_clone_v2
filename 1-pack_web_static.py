@@ -9,11 +9,12 @@ from datetime import datetime
 
 def do_pack():
     """Generates a .tgz archive from web_static """
+    local('mkdir -p versions')
     time = datetime.now()
     fname = """'versions/web_static_{}{}{}{}{}{}.tgz'.format(time.year,
            time.month, time.day, time.hour, time.minute, time.second)"""
-    local('mkdir -p versions')
     archive = local('tar -cvzf' + fname + 'web_static')
     if archive.failed:
         return None
-    return fname
+    else:
+        return fname
