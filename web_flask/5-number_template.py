@@ -3,6 +3,7 @@
 
 
 from flask import Flask
+from flask import render_template
 app = Flask(__name__)
 
 
@@ -18,18 +19,18 @@ def display_hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def display_c(text):
-    return 'C {}'.format(text).replace('_', ' ')
+    return ('C {}'.format(text).replace('_', ' '))
 
 
 @app.route('/python', strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def display_python(text='is cool'):
-    return 'Python {}'.format(text).replace('_', ' ')
+    return ('Python {}'.format(text).replace('_', ' '))
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def display_int(n):
-    return '{} is a number'.format(n)
+    return ('{} is a number'.format(n))
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
