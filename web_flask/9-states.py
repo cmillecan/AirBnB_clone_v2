@@ -15,11 +15,12 @@ def close_storage(close):
     storage.close()
 
 
-@app.route('/cities_by_states', strict_slashes=False)
+@app.route('/states', strict_slashes=False)
+@app.route('/states/<id>', strict_slashes=False)
 def display_state_html():
     """Displays HTML page"""
-    return render_template('8-cities_by_states.html',
-                           states=storage.all(State).values())
+    return render_template('9-states.html',
+                           states=storage.all(State).values(), id=id)
 
 
 if __name__ == '__main__':
