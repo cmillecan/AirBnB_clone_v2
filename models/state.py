@@ -4,8 +4,9 @@ This module defines class State that inherits from BaseModel
 """
 from models.base_model import BaseModel, Base
 import models
-import sqlalchemy import Column, String
-import sqlalchemy.orm import relationship
+from models.city import City
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 from os import getenv
 
 
@@ -19,3 +20,6 @@ class State(BaseModel):
 
     @property
     def cities(self):
+        """Return the list of cities"""
+        if self.id == city.state_id:
+            return (city for city in models.storage.all(City).values())
