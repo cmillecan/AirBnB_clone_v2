@@ -10,7 +10,7 @@ from sqlalchemy.orm import relationship
 from os import getenv
 
 
-class State(BaseModel):
+class State(BaseModel, Base):
     """
     Initialize class State with attribute
         name: (str) name of the state
