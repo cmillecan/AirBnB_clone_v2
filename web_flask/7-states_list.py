@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def close_storage(close_storage):
+def close_storage(close):
     """Closes session"""
     storage.close()
 
